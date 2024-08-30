@@ -159,21 +159,21 @@
                             <div class="carousel-item active">
                                 <img src="images/main_photo.jpg" class="d-block w-100" alt="Image 1">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Image 1</h5>
+<!--                                     <h5>Image 1</h5> -->
                                     <p>Description for image 1.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <img src="images/13.jpg" class="d-block w-100" alt="Image 2">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Image 2</h5>
+<!--                                     <h5>Image 2</h5> -->
                                     <p>Description for image 2.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <img src="images/3.jpg" class="d-block w-100" alt="Image 3">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Image 3</h5>
+<!--                                     <h5>Image 3</h5> -->
                                     <p>Description for image 3.</p>
                                 </div>
                             </div>
@@ -187,14 +187,14 @@
                             <div class="carousel-item">
                                 <img src="images/5.jpg" class="d-block w-100" alt="Image 5">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Image 5</h5>
+<!--                                     <h5>Image 5</h5> -->
                                     <p>Description for image 5.</p>
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <img src="images/6.jpg" class="d-block w-100" alt="Image 6">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Image 6</h5>
+<!--                                     <h5>Image 6</h5> -->
                                     <p>Description for image 6.</p>
                                 </div>
                             </div>
