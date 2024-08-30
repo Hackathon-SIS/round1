@@ -209,11 +209,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-4">
-        <p>&copy; 2024 Alumni Portal. All rights reserved.</p>
-        <p><a href="contact_us.php">Contact Us</a> | <a href="privacy_policy.php">Privacy Policy</a></p>
-    </footer>
+   
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBC6qCuVRrCBq2BYwtf7W8WW" crossorigin="anonymous"></script>
