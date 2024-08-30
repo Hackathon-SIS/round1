@@ -187,7 +187,7 @@
 
                 <!-- Switch to login page -->
                 <div class="row mt-3 mb-2">
-                    <p class="text-center">Already have an account? <a href="index.php">Login</a></p>
+                    <p class="text-center">Already have an account? <a href="login.php">Login</a></p>
                 </div>
             </div>
         </div>
