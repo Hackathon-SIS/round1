@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLA Alumni Registeration</title>
+    <title>Assignment 2 | Register</title>
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -16,7 +16,6 @@
         session_start();
 
         unset($_SESSION['login_errors']);
-
         // Navigate to main_menu if user is logged in
         if(isset($_SESSION['logged_account']) && $_SESSION['logged_account']['type'] == 'user')
             header('Location: main_menu.php');
@@ -75,7 +74,7 @@
                         <div class="col">
                             <p class="mb-1">Gender<strong class="text-danger">*</strong></p>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input <?php echo (isset($errors['gender'])) ? 'is-invalid' : ((isset($verified['gender'])) ? 'is-valid' : ''); ?>" type="radio" name="gender" id="genderFemale" value="Female" checked <?php echo isset($formData['gender']) ? (($formData['gender'] == 'Female') ? 'checked' : '') : ''; ?>>
+                                <input class="form-check-input <?php echo (isset($errors['gender'])) ? 'is-invalid' : ((isset($verified['gender'])) ? 'is-valid' : ''); ?>" type="radio" name="gender" id="genderFemale" value="Female" <?php echo isset($formData['gender']) ? (($formData['gender'] == 'Female') ? 'checked' : '') : ''; ?>>
                                 <label class="form-check-label" for="genderFemale">Female</label>
                             </div>
                             <div class="form-check form-check-inline">
@@ -83,6 +82,22 @@
                                 <label class="form-check-label" for="genderMale">Male</label>
                             </div>
                             <?php echo (isset($errors['gender'])) ? '<div class="invalid-feedback">' . $errors['gender'] . '</div>' : ''; ?>
+                        </div>
+                    </div>
+
+                    <!-- Status: Alumni or Student -->
+                    <div class="row">
+                        <div class="col">
+                            <p class="mb-1">Status<strong class="text-danger">*</strong></p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input <?php echo (isset($errors['status'])) ? 'is-invalid' : ((isset($verified['status'])) ? 'is-valid' : ''); ?>" type="radio" name="status" id="statusAlumni" value="Alumni" <?php echo isset($formData['status']) ? (($formData['status'] == 'Alumni') ? 'checked' : '') : ''; ?>>
+                                <label class="form-check-label" for="statusAlumni">Alumni</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input <?php echo (isset($errors['status'])) ? 'is-invalid' : ((isset($verified['status'])) ? 'is-valid' : ''); ?>" type="radio" name="status" id="statusStudent" value="Student" <?php echo isset($formData['status']) ? (($formData['status'] == 'Student') ? 'checked' : '') : ''; ?>>
+                                <label class="form-check-label" for="statusStudent">Student</label>
+                            </div>
+                            <?php echo (isset($errors['status'])) ? '<div class="invalid-feedback">' . $errors['status'] . '</div>' : ''; ?>
                         </div>
                     </div>
 
@@ -97,7 +112,7 @@
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control <?php echo (isset($errors['hometown'])) ? 'is-invalid' : ((isset($verified['hometown'])) ? 'is-valid' : ''); ?>" id="hometown" name="hometown" placeholder="Kuching" value="<?php echo isset($formData['hometown']) ? htmlspecialchars($formData['hometown']) : ''; ?>">
+                                <input type="text" class="form-control <?php echo (isset($errors['hometown'])) ? 'is-invalid' : ((isset($verified['hometown'])) ? 'is-valid' : ''); ?>" id="hometown" name="hometown" placeholder="Hometown" value="<?php echo isset($formData['hometown']) ? htmlspecialchars($formData['hometown']) : ''; ?>">
                                 <label for="hometown">Hometown<strong class="text-danger">*</strong></label>
                                 <?php echo (isset($errors['hometown'])) ? '<div class="invalid-feedback">' . $errors['hometown'] . '</div>' : ''; ?>
                             </div>
@@ -108,68 +123,36 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control <?php echo (isset($errors['password'])) ? 'is-invalid' : ''; ?>" id="password" name="password" placeholder="123456">
+                                <input type="password" class="form-control <?php echo (isset($errors['password'])) ? 'is-invalid' : ((isset($verified['password'])) ? 'is-valid' : ''); ?>" id="password" name="password" placeholder="Password">
                                 <label for="password">Password<strong class="text-danger">*</strong></label>
                                 <?php echo (isset($errors['password'])) ? '<div class="invalid-feedback">' . $errors['password'] . '</div>' : ''; ?>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control <?php echo (isset($errors['confirmPassword'])) ? 'is-invalid' : ''; ?>" id="confirmPassword" name="confirmPassword" placeholder="123456">
-                                <label for="confirmPassword">Confirm Password<strong class="text-danger">*</strong></label>
-                                <?php echo (isset($errors['confirmPassword'])) ? '<div class="invalid-feedback">' . $errors['confirmPassword'] . '</div>' : ''; ?>
+                                <input type="password" class="form-control <?php echo (isset($errors['confirm_password'])) ? 'is-invalid' : ((isset($verified['confirm_password'])) ? 'is-valid' : ''); ?>" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
+                                <label for="confirm_password">Confirm Password<strong class="text-danger">*</strong></label>
+                                <?php echo (isset($errors['confirm_password'])) ? '<div class="invalid-feedback">' . $errors['confirm_password'] . '</div>' : ''; ?>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Register button -->
-                    <div class="row">
-                        <div class="d-grid gap-2 col-12 mx-auto">
-                            <button type="submit" class="btn btn-primary py-2 fw-medium">Register</button>
-                        </div>
-                    </div>
-
-                    <!-- *Required field message, Reset Form -->
-                    <div class="row mt-3 mb-5 justify-content-between align-items-center">
-                        <div class="col"><span class="text-secondary fst-italic"><strong class="text-danger">*</strong>Indicates required field</span></div>
-                        <div class="col-auto"><button type="reset" class="btn btn-outline-danger me-2" onclick="resetValidation(event)">Reset Form</button></div>
+                    <!-- Submit button -->
+                    <div class="d-flex justify-content-center mt-3">
+                        <button class="btn btn-primary py-2 w-100" type="submit">Submit</button>
                     </div>
                 </form>
-                
-                <hr/>
 
-                <!-- Login button -->
-                <div class="row mt-5 justify-content-start align-items-center">
-                    <div class="col-auto pe-0"><span class="fw-medium">Already have an account?</span></div>
-                    <div class="col ps-2"><a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="login.php">Login</a></div>
+                <!-- Switch to login page -->
+                <div class="row mt-3 mb-2">
+                    <p class="text-center">Already have an account? <a href="index.php">Login</a></p>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Boostrap JS --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script>
-        // Reset form
-        // Javascript required since PHP repopulates the input values making that the default to reset to
-        function resetValidation(event){
-            event.preventDefault();
-            // Remove error classes and msgs
-            while (document.getElementsByClassName("is-invalid").length !== 0)
-                document.getElementsByClassName("is-invalid")[0].classList.remove("is-invalid");
 
-            // Remove valid classes and msgs
-            while (document.getElementsByClassName("is-valid").length !== 0)
-                document.getElementsByClassName("is-valid")[0].classList.remove("is-valid");
+    <!-- Bootstrap JS --><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-qRVSLmZlOGVbCeBZW0BlNsk6VSm8poEODwg6xWUN6M6x5siDk+Jz6A9Bf2zp38gF" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-pGfa5fWu0QnqRdfCsSl+3PO9kw1Mkq6PsADyGQjkFxh2ZZaHL1lHZnDoHQhX8w2G" crossorigin="anonymous"></script>
 
-            // Remove input values
-            document.querySelectorAll("input").forEach(element => {
-                if (!(element.type === "radio" && element.name === "gender"))
-                    element.value = "";
-            });
-
-            // Clear error msgs
-            document.querySelectorAll('.invalid-feedback').forEach(errorMessage => { errorMessage.innerHTML = ''; })
-        }
-    </script>
 </body>
 </html>
