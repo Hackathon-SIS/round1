@@ -155,9 +155,9 @@
                 <!-- Main banner carousel -->
                 <div class="col-8 mainBanner">
                     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-<!--                         <div class="carousel-inner">
+                        <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/main_photo.jpg" class="d-block w-100" alt="Image 1"> -->
+<!--                                 <img src="images/main_photo.jpg" class="d-block w-100" alt="Image 1"> -->
 <!--                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Image 1</h5>
                                     <p>Description for image 1.</p>
